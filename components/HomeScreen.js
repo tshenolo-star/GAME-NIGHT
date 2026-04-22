@@ -24,35 +24,39 @@ export default function HomeScreen({ onNavigate, theme, toggleTheme }) {
           {theme === 'dark' ? <><Sun size={14} /> Light</> : <><Moon size={14} /> Dark</>}
         </button>
 
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 54, letterSpacing: 5, color: 'var(--gold)', lineHeight: 1 }}>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 8vw, 54px)', letterSpacing: 5, color: 'var(--gold)', lineHeight: 1 }}>
           SIP OR SPILL
         </div>
-        <div style={{ fontSize: 12, color: 'var(--text2)', letterSpacing: 3, textTransform: 'uppercase', marginTop: 8 }}>
+        <div style={{ fontSize: 'clamp(10px, 3vw, 12px)', color: 'var(--text2)', letterSpacing: 3, textTransform: 'uppercase', marginTop: 8 }}>
           The Ultimate Drinking Game App
         </div>
       </div>
 
-      <div style={{ padding: '28px 150px 0' }}>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 15, letterSpacing: 3, color: 'var(--text2)', textTransform: 'uppercase', marginBottom: 16 }}>
+      <div style={{ padding: '28px clamp(16px, 5vw, 150px) 0' }}>
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(13px, 4vw, 15px)', letterSpacing: 3, color: 'var(--text2)', textTransform: 'uppercase', marginBottom: 16 }}>
           Choose Your Game
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))', 
+          gap: 'clamp(12px, 4vw, 16px)' 
+        }}>
           {menuItems.map(({ id, label, sub, icon: Icon, color, bg, border }) => (
             <button key={id} onClick={() => onNavigate(id)} style={{
               background: bg, border: `1px solid ${border}`, borderRadius: 16,
-              padding: '22px 14px', display: 'flex', flexDirection: 'column',
-              alignItems: 'center', gap: 10, transition: 'transform 0.15s, opacity 0.15s', color,
-              minHeight: 160, height: 'auto'
+              padding: 'clamp(16px, 5vw, 22px) clamp(10px, 3vw, 14px)', display: 'flex', flexDirection: 'column',
+              alignItems: 'center', gap: 'clamp(8px, 3vw, 10px)', transition: 'transform 0.15s, opacity 0.15s', color,
+              minHeight: 'clamp(140px, 25vw, 160px)', height: 'auto'
             }}
               onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
               onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
               onTouchStart={e => e.currentTarget.style.transform = 'scale(0.95)'}
               onTouchEnd={e => e.currentTarget.style.transform = 'scale(1)'}
             >
-              <Icon size={30} strokeWidth={1.5} />
-              <div style={{ fontFamily: 'var(--font-display)', fontSize: 19, letterSpacing: 2, lineHeight: 1 }}>{label}</div>
-              <div style={{ fontSize: 10, letterSpacing: 1, textTransform: 'uppercase', opacity: 0.65, fontWeight: 500 }}>{sub}</div>
+              <Icon size={30} strokeWidth={1.5} style={{ width: 'clamp(24px, 6vw, 30px)', height: 'clamp(24px, 6vw, 30px)' }} />
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(16px, 4.5vw, 19px)', letterSpacing: 2, lineHeight: 1 }}>{label}</div>
+              <div style={{ fontSize: 'clamp(9px, 3vw, 10px)', letterSpacing: 1, textTransform: 'uppercase', opacity: 0.65, fontWeight: 500 }}>{sub}</div>
             </button>
           ))}
         </div>
