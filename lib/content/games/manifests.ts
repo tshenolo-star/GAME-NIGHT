@@ -183,7 +183,7 @@ export const GAME_MANIFESTS: GameManifest[] = [
     description:
       'A word\u2019s letters are shuffled on screen. Race to unscramble it — solo or as competing teams — before the timer expires.',
     howToPlay: [
-      'A scrambled word appears on screen.',
+      'A scrambled word appears on screen, with its category and number of letters as a hint.',
       'The active player (or team) tries to unscramble it out loud.',
       'Correct guesses score points; the timer keeps things tense.',
       'Pass to the next player for a new word.',
@@ -199,7 +199,7 @@ export const GAME_MANIFESTS: GameManifest[] = [
     usesTimer: true,
     requiresTeams: false,
     usesPoints: true,
-    cardPackId: 'wordBank',
+    cardPackId: 'none',
     component: 'wordScramble',
     accent: '#34d399',
   },
